@@ -9,7 +9,7 @@ def timeEstimator():
     totalCtn = int(input("How many total cartons are in the order? "))
     unitPerCtn = int(input("How many units per carton? "))
     finishCtn = int(input("How many cartons are currently finished? "))
-    ctnPer15 = int(input("How many cartons are you finishing in an 15 minute period? "))
+    ctnPer15 = int(input("How many cartons are you finishing in a 15 minute period? "))
     #calculate
     totalUnits = totalCtn * unitPerCtn
     totalCtn = totalCtn - finishCtn
@@ -52,6 +52,7 @@ def main():
     print("Enter time for Time Estimates")
     print("Enter cube for Max Height and Cube")
     print("Enter pallet for pallet/ctn count")
+    print("Enter weight for total weight")
     userInput = input("Function: ")
     if(userInput == "time"):
         timeEstimator()
@@ -59,6 +60,8 @@ def main():
         cube()
     elif(userInput == "pallet"):
         pallet()
+    elif(userInput == "weight"):
+        totalWeight()
     else:
         print("You need to enter a valid function.")
         main()
@@ -105,9 +108,18 @@ def women():
     print("Total Pallets: " + "%.2f" % totalPallets)
     main()
 
+#calculate total weight
+def totalWeight():
+    cartonWeight = float(input("Weight of single carton: "))
+    amount = int(input("How many cartons?: "))
+    pallet = 30
+    palletCount = int(input("Total Pallets: "))
+
+    totalWeight = ((cartonWeight * amount) + (pallet * palletCount))
+    print("Total Weight: " + str(totalWeight))
+    main()
+
 main()
-
-
 
 
 
